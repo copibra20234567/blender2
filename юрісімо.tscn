@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://qjp7frt4pnxb"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_honll"]
+[ext_resource type="PackedScene" uid="uid://cobv51aw7bf1" path="res://untitled.glb" id="1_rbuke"]
+[ext_resource type="PackedScene" uid="uid://bjjj2qb22g2wh" path="res://untitled5.glb" id="2_coqoj"]
+[ext_resource type="PackedScene" uid="uid://dmjfmqucey8h2" path="res://home scence.tscn" id="3_lqb4w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pxb7o"]
+size = Vector3(250, 1, 250)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qw5xn"]
+size = Vector3(250, 1, 250)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_capnq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0058, 0.0190158, 107.474)
+mesh = SubResource("BoxMesh_pxb7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9557, 0, 107.174)
+shape = SubResource("BoxShape3D_qw5xn")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_honll")
+
+[node name="untitled5" parent="CharacterBody3D" instance=ExtResource("2_coqoj")]
+transform = Transform3D(-2.30199, 0, 0, 0, 1.69014, 0, 0, 0, 1.87472, 28.795, 70.1346, 4.19517)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(19.1695, 0, 0, 0, 15.7829, 0, 0, 0, 16.2725, 28.5794, 72.501, 4.18439)
+shape = SubResource("BoxShape3D_capnq")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.97722, 0.212229, 0, -0.212229, 0.97722, 0, 102.346, 135.608)
+
+[node name="Node3D" parent="." instance=ExtResource("3_lqb4w")]
+transform = Transform3D(-0.347343, 0, -6.49482, 0, 6.07177, 0, 13.1244, 0, -0.171888, -81.0273, -4.24928, 130.444)
+
+[node name="untitled" parent="." instance=ExtResource("1_rbuke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0965271, 0)
