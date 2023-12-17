@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bau0dlbc40577"]
+[gd_scene load_steps=7 format=3 uid="uid://bau0dlbc40577"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_honll"]
-[ext_resource type="PackedScene" uid="uid://cobv51aw7bf1" path="res://untitled.glb" id="1_rbuke"]
-[ext_resource type="PackedScene" uid="uid://bjjj2qb22g2wh" path="res://untitled5.glb" id="2_coqoj"]
 [ext_resource type="PackedScene" uid="uid://dmjfmqucey8h2" path="res://home scence.tscn" id="3_lqb4w"]
-[ext_resource type="PackedScene" uid="uid://ch075kad48rvg" path="res://animation.glb" id="3_x4xxe"]
+[ext_resource type="PackedScene" uid="uid://dhjchdjsvlbls" path="res://pistolanimation.glb" id="3_nqrni"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pxb7o"]
 size = Vector3(250, 1, 250)
@@ -13,8 +11,13 @@ size = Vector3(250, 1, 250)
 size = Vector3(250, 1, 250)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_capnq"]
+size = Vector3(0.187727, 0.397367, 0.346789)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 279.159, 93.1056)
+shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -29,21 +32,15 @@ shape = SubResource("BoxShape3D_qw5xn")
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_honll")
 
-[node name="untitled5" parent="CharacterBody3D" instance=ExtResource("2_coqoj")]
-transform = Transform3D(-2.30199, 0, 0, 0, 1.69014, 0, 0, 0, 1.87472, 28.795, 70.1346, 4.19517)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(19.1695, 0, 0, 0, 15.7829, 0, 0, 0, 16.2725, 28.5794, 72.501, 4.18439)
+transform = Transform3D(19.1695, 0, 0, 0, 15.7829, 0, 0, 0, 16.2725, 43.4998, 4.48149, 113.754)
 shape = SubResource("BoxShape3D_capnq")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.97722, 0.212229, 0, -0.212229, 0.97722, 0, 102.346, 135.608)
+[node name="pistolanimation" parent="CharacterBody3D" instance=ExtResource("3_nqrni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6387, 0, 113.739)
 
-[node name="animation" parent="CharacterBody3D" instance=ExtResource("3_x4xxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.7106, -1.41174, 0)
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(-0.780147, 0, -0.625597, 0, 1, 0, 0.625597, 0, -0.780147, 30.2183, 10.9249, 99.9013)
 
 [node name="Node3D" parent="." instance=ExtResource("3_lqb4w")]
 transform = Transform3D(-0.347343, 0, -6.49482, 0, 6.07177, 0, 13.1244, 0, -0.171888, -81.0273, -4.24928, 130.444)
-
-[node name="untitled" parent="." instance=ExtResource("1_rbuke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0965271, 0)
